@@ -21,12 +21,20 @@ public class ReservationService {
     @WebMethod(operationName = "getFreeSeats")
     public List<Seat> getFreeSeats() {
         List<Seat> result = new ArrayList<>();
+
         result.add(new Seat("First", 3, 7));
         result.add(new Seat("First", 3, 8));
         result.add(new Seat("First", 3, 9));
         result.add(new Seat("Second", 2, 5));
         result.add(new Seat("Second", 1, 5));
         result.add(new Seat("Third", 4, 15));
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         return result;
     }
 }
